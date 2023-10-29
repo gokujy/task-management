@@ -1,0 +1,35 @@
+.header-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  
+  }
+  
+  .header-div {
+    background-color: white;
+    height: 86px;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgb(238, 238, 238);
+  
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+  
+    .cart-button {
+      background-color: rgb(12, 131, 31);
+      border-radius: 8px;
+      cursor: pointer;
+      height: 52px;
+      min-width: 112px;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      display: flex;
+      color: #ffffff;
+    }
+  }
+  

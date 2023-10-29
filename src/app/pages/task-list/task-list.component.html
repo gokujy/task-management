@@ -1,0 +1,106 @@
+<div class="main-container">
+  <div>
+    <button mat-raised-button (click)="addEditTask()">Add Task</button>
+  </div>
+
+  <div class="text-end">
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="statusFilter" (selectionChange)="filterTasks()">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="open">Open</mat-option>
+        <mat-option value="completed">Completed</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Priority</mat-label>
+      <mat-select [(ngModel)]="priorityFilter" (selectionChange)="filterTasks()">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="low">Low</mat-option>
+        <mat-option value="medium">Medium</mat-option>
+        <mat-option value="high">High</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Due Date</mat-label>
+      <input matInput [(ngModel)]="dueDateFilter" [matDatepicker]="picker" (change)="filterTasks()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+
+  <div *ngIf="tasks.length === 0; else tasksTable">
+    <p>No data found.</p>
+  </div>
+
+  <ng-template #tasksTable>
+    <mat-table [dataSource]="tasks"   cdkDropList
+               (cdkDropListDropped)="drop($event)"
+               cdkDropListData="dataSource"
+               [cdkDropListDisabled]="dragDisabled">
+
+      <ng-container matColumnDef="position" sticky>
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-icon class="dragCursor" (mousedown)="dragDisabled = false;"
+          >reorder</mat-icon
+          >
+          <span>{{element.position}}</span>
+        </mat-cell>
+      </ng-container>
+
+
+      <!-- Define the columns -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.description }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.status }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="priority">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.priority }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="dueDate">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.dueDate }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button  (click)="addEditTask(row)">
+            <mat-icon>edit</mat-icon> <!-- You can use a suitable icon here -->
+          </button>
+          <button mat-icon-button  (click)="deleteTask(row)">
+            <mat-icon>delete</mat-icon> <!-- You can use a suitable icon here -->
+          </button>
+          <button mat-icon-button (click)="markAsCompleted(row)" *ngIf="row.status !== 'completed'">
+            <mat-icon>check</mat-icon> <!-- You can use a suitable icon here -->
+          </button>
+          <button mat-icon-button (click)="viewTaskDetail(row)" >
+            <mat-icon>remove_red_eye</mat-icon> <!-- You can use a suitable icon here -->
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"  cdkDrag
+               [cdkDragData]="row"></mat-row>
+    </mat-table>
+  </ng-template>
+</div>
+

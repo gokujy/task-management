@@ -1,0 +1,39 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <input matInput formControlName="title" placeholder="Title" required>
+    <mat-error>Title is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <textarea matInput formControlName="description" placeholder="Description" required></textarea>
+    <mat-error>Description is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-select formControlName="status" placeholder="Status">
+      <mat-option value="open">Open</mat-option>
+      <mat-option value="inProgress">In Progress</mat-option>
+      <mat-option value="completed">Completed</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-select formControlName="priority" placeholder="Priority">
+      <mat-option value="low">Low</mat-option>
+      <mat-option value="medium">Medium</mat-option>
+      <mat-option value="high">High</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <input matInput [matDatepicker]="dueDate" formControlName="dueDate" placeholder="Due Date" required>
+    <mat-datepicker-toggle matSuffix [for]="dueDate"></mat-datepicker-toggle>
+    <mat-datepicker #dueDate></mat-datepicker>
+    <mat-error>Due Date is required</mat-error>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">Save</button>
+    <button mat-raised-button color="warn" type="button" class="cancel-button" (click)="onCancel()" >Cancel</button>
+  </div>
+</form>

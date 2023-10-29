@@ -1,0 +1,95 @@
+p {
+  font-size: 18px;
+  color: #999;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.main-container {
+  margin: 16px;
+}
+
+/* Style the table container */
+.mat-elevation-z8 {
+  width: 100%;
+  margin: 20px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the table header cells */
+th.mat-header-cell {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+/* Style the table data cells */
+td.mat-cell {
+  text-align: left;
+}
+
+/* Add some padding to table cells */
+.mat-cell, th.mat-header-cell {
+  padding: 8px;
+}
+
+/* Style table row on hover */
+tr.mat-row:hover {
+  background-color: #f0f0f0;
+}
+
+/* Style filter inputs */
+input.mat-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  width: 100%;
+}
+
+/* Style filter input placeholder text */
+::placeholder {
+  color: #888;
+}
+
+/* Style filter input on focus */
+input.mat-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button.mat-icon-button {
+  background-color: #4CAF50; /* Change to your preferred color */
+  color: #ffffff; /* Change to your preferred color */
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.mat-icon-button:hover {
+  background-color: #45a049; /* Change to your preferred hover color */
+}
+
+
+.dragCursor {
+  margin-right: 16px;
+  cursor: move;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging .mat-row:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
