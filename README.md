@@ -1,32 +1,17 @@
-# Angular Project Name
+# Angular Project Setup
 
-Brief project description goes here.
+This README section provides step-by-step instructions on setting up and running the Angular project on your local development environment.
 
-## Table of Contents
+## Prerequisites
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Development](#development)
-  - [Development Server](#development-server)
-  - [Code Scaffolding](#code-scaffolding)
-- [Build and Deployment](#build-and-deployment)
-- [Running Tests](#running-tests)
-- [Linting and Code Formatting](#linting-and-code-formatting)
-- [Further Help](#further-help)
+Before you begin, ensure that you have the following software installed on your system:
 
-## Getting Started
+- [Node.js](https://nodejs.org/) and [npm (Node Package Manager)](https://www.npmjs.com/)
+- [Angular CLI (Command Line Interface)](https://angular.io/cli)
 
-### Prerequisites
+You can check if you have Node.js and npm installed by running the following commands in your terminal:
 
-- Node.js and npm (Node Package Manager)
-- Angular CLI
-- Git (optional, but recommended for version control)
+```bash
+node -v
+npm -v
 
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yourusername/your-angular-project.git
-   cd your-angular-project
